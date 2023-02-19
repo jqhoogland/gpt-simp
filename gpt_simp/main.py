@@ -1,11 +1,13 @@
+import os
 import openai
 import typer
 from gpt_simp.gpt import simplify
+from dotenv import load_dotenv
 
-from gpt_simp.wiki import get_wiki_article
+from gpt_simp.wiki import get_wiki_article, publish
 
-# Load api key from .env file
-openai.api_key = open(".env").read().strip()
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 def edit(article: str) -> str:
@@ -27,7 +29,7 @@ def main(name: str):
     simple_article = article
     edited_article = edit(simple_article)
 
-    # publish(name, edited_article)
+    publish(name, edited_article)
 
 if __name__ == "__main__":
     typer.run(main)
