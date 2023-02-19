@@ -12,7 +12,7 @@ def get_prompt(title: str, article: str) -> str:
         "Use a small vocabulary, the active voice, and simple sentences. "
         "Do not assume prior knowledge for complex topics and explain technical jargon when it is introduced. "
         "Don't leave out the details, and avoid oversimplifying. "
-        "Please use wikitext and copy over any relevant wikilinks from the original.\n\n"
+        "Use wikitext and make sure to copy over relevant wikilinks from the original.\n\n"
         # "I am a 16 year-old student, and I am trying to understand complex math with my limited knowledge. "
         # f"Currently, I'm trying to understand \"{title}\". "
         # "I will give you part of the Wikipedia page, and you will help me break it down, translate it to Simple English, and reword the text so that I can understand. "
