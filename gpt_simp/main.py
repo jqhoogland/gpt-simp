@@ -1,9 +1,10 @@
 import os
+
 import openai
 import typer
-from gpt_simp.gpt import simplify
 from dotenv import load_dotenv
 
+from gpt_simp.gpt import simplify
 from gpt_simp.wiki import get_wiki_article, publish
 
 load_dotenv()
@@ -21,15 +22,16 @@ def edit(article: str) -> str:
     with open("article.txt", "r") as f:
         return f.read()
 
+
 def main(name: str):
     article = get_wiki_article(name)
     typer.echo(article)
 
-    # simple_article = simplify(article)
-    simple_article = article
+    simple_article = simplify(name, article)
     edited_article = edit(simple_article)
 
     publish(name, edited_article)
+
 
 if __name__ == "__main__":
     typer.run(main)
